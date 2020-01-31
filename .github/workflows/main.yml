@@ -1,0 +1,17 @@
+name: "CI"
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  Release:
+    if: |
+      github.ref == 'refs/heads/master' &&
+      github.event.repository.fork == false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: node release.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
