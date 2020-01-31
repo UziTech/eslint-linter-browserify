@@ -29,6 +29,6 @@ if (eslintVersion !== version) {
 	exec("npx browserify index.js -o linter.js");
 	exec(`npm version ${eslintVersion}`);
 	eceh("echo \"//registry.npmjs.org/:_authToken = $NPM_TOKEN\" > .npmrc")
-	exec("npm publish");
-	exec("git push --follow-tags");
+	// exec("npm publish");
+	// exec("git push --follow-tags");
 }
