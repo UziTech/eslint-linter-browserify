@@ -8,7 +8,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/UziTech/eslint-browserify.git"
+    "url": "git+https://github.com/UziTech/eslint-linter-browserify.git"
   },
   "keywords": [
     "eslint",
