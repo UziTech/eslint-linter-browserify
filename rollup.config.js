@@ -12,7 +12,9 @@ module.exports = {
 		exports: "named",
 	},
 	plugins: [
-		commonjs(),
+		commonjs({
+			ignoreGlobal: true,
+		}),
 		json(),
 		builtins(),
 		resolve({

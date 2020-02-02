@@ -30,7 +30,6 @@ if (eslintVersion === version) {
 } else {
 	exec("npm install");
 	exec(`npm install eslint@${eslintVersion} --save-dev --save-exact`);
-	exec("npm run fixNoObjCalls");
 	exec("npm run build");
 	exec("npm test");
 	exec("git config user.email \"<>\"");
