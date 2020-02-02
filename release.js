@@ -1,5 +1,5 @@
 const {execSync} = require("child_process");
-const {writeFileSync} = require("fs");
+const {writeFileSync, readFileSync} = require("fs");
 const {version} = require("./package.json");
 
 function exec(command) {
@@ -12,9 +12,14 @@ function exec(command) {
 		process.exit(1);
 	}
 	output = output.trim();
-	console.log(output);
-	console.log();
+	console.log(`${output}\n`);
 	return output;
+}
+
+function fixNoObjCalls() {
+	// fixes https://github.com/eslint/eslint/pull/12862
+	const noObjCalls = readFileSync("node_modules/eslint/lib/rules/no-obj-calls.js", {encoding: "utf8"});
+	writeFileSync("node_modules/eslint/lib/rules/no-obj-calls.js", noObjCalls.replace("const global", "const g").replace("[global]", "[g]"));
 }
 
 const eslintVersion = exec("npm view eslint@latest version");
@@ -24,15 +29,21 @@ if (!/^\d+\.\d+\.\d+$/.test(eslintVersion)) {
 	process.exit(1);
 }
 
-if (eslintVersion !== version) {
-	exec(`npm install eslint@${eslintVersion} browserify tinyify --no-save`);
-	exec("npx browserify -p tinyify index.js -o linter.js");
-	exec("git config --global user.email \"<>\"");
-	exec("git config --global user.name \"Github Actions\"");
+console.log(`> Curent version\n${version}\n`);
+
+if (eslintVersion === version) {
+	console.log("No update available");
+} else {
+	exec("npm install");
+	exec(`npm install eslint@${eslintVersion} --save-dev --save-exact`);
+	fixNoObjCalls();
+	exec("npm run build");
+	exec("npm test");
+	exec("git config user.email \"<>\"");
+	exec("git config user.name \"Github Actions\"");
+	exec(`git commit -am "update eslint to v${eslintVersion}"`);
 	exec(`npm version ${eslintVersion}`);
 	writeFileSync(".npmrc", "//registry.npmjs.org/:_authToken=${NPM_TOKEN}");
 	exec("npm publish");
 	exec("git push \"https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git\" HEAD:master --follow-tags");
-} else {
-	console.log("No update available");
 }

@@ -20,7 +20,19 @@
   "author": "Tony Brix <tony@brix.ninja>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/UziTech/eslint-browserify/issues"
+    "url": "https://github.com/UziTech/eslint-linter-browserify/issues"
   },
-  "homepage": "https://github.com/UziTech/eslint-browserify#readme"
+  "homepage": "https://github.com/UziTech/eslint-linter-browserify#readme",
+  "scripts": {
+    "test": "node test.js",
+    "build": "rollup --config"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "*",
+    "@rollup/plugin-json": "*",
+    "@rollup/plugin-node-resolve": "*",
+    "eslint": "6.8.0",
+    "rollup": "*",
+    "rollup-plugin-node-builtins": "*"
+  }
 }
