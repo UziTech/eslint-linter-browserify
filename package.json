@@ -25,7 +25,8 @@
   "homepage": "https://github.com/UziTech/eslint-linter-browserify#readme",
   "scripts": {
     "test": "node test.js",
-    "build": "rollup --config"
+    "build": "rollup --config",
+    "lint": "eslint ."
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "*",

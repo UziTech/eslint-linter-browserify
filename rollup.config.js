@@ -4,18 +4,18 @@ const json = require("@rollup/plugin-json");
 const builtins = require("rollup-plugin-node-builtins");
 
 module.exports = {
-  input: "index.js",
-  output: {
-    file: "linter.js",
-    format: "cjs",
-    exports: "named",
-  },
-  plugins: [
-    commonjs(),
-    json(),
-    builtins(),
-    resolve({
-      preferBuiltins: false
-    }),
-  ],
+	input: "index.js",
+	output: {
+		file: "linter.js",
+		format: "cjs",
+		exports: "named",
+	},
+	plugins: [
+		commonjs(),
+		json(),
+		builtins(),
+		resolve({
+			preferBuiltins: false
+		}),
+	],
 };
