@@ -27,6 +27,8 @@ if (!/^\d+\.\d+\.\d+$/.test(eslintVersion)) {
 if (eslintVersion !== version) {
 	exec(`npm install eslint@${eslintVersion} browserify tinyify --no-save`);
 	exec("npx browserify -p tinyify index.js -o linter.js");
+	exec("git config --global user.email \"<>\"");
+	exec("git config --global user.name \"Github Actions\"");
 	exec(`npm version ${eslintVersion}`);
 	writeFileSync(".npmrc", "//registry.npmjs.org/:_authToken=${NPM_TOKEN}");
 	exec("npm publish");
