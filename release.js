@@ -1,5 +1,5 @@
 const {execSync} = require("child_process");
-const {writeFileSync, readFileSync} = require("fs");
+const {writeFileSync} = require("fs");
 const {version} = require("./package.json");
 
 function exec(command) {
@@ -16,12 +16,6 @@ function exec(command) {
 	return output;
 }
 
-function fixNoObjCalls() {
-	// fixes https://github.com/eslint/eslint/pull/12862
-	const noObjCalls = readFileSync("node_modules/eslint/lib/rules/no-obj-calls.js", {encoding: "utf8"});
-	writeFileSync("node_modules/eslint/lib/rules/no-obj-calls.js", noObjCalls.replace("const global", "const g").replace("[global]", "[g]"));
-}
-
 const eslintVersion = exec("npm view eslint@latest version");
 
 if (!/^\d+\.\d+\.\d+$/.test(eslintVersion)) {
@@ -36,7 +30,7 @@ if (eslintVersion === version) {
 } else {
 	exec("npm install");
 	exec(`npm install eslint@${eslintVersion} --save-dev --save-exact`);
-	fixNoObjCalls();
+	exec("npm run fixNoObjCalls");
 	exec("npm run build");
 	exec("npm test");
 	exec("git config user.email \"<>\"");
