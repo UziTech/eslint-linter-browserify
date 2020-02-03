@@ -8,7 +8,7 @@ module.exports = {
 	input: "index.js",
 	output: {
 		file: "linter.js",
-		format: "cjs",
+		format: "umd",
 		exports: "named",
 	},
 	plugins: [
