@@ -10,6 +10,7 @@ module.exports = {
 		file: "linter.js",
 		format: "umd",
 		exports: "named",
+		name: "eslint",
 	},
 	plugins: [
 		commonjs({
