@@ -33,7 +33,7 @@
     "@rollup/plugin-commonjs": "*",
     "@rollup/plugin-json": "*",
     "@rollup/plugin-node-resolve": "*",
-    "eslint": "6.8.0",
+    "eslint": "7.0.0",
     "rollup": "*",
     "rollup-plugin-node-builtins": "*",
     "rollup-plugin-terser": "*"
