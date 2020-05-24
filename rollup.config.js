@@ -1,5 +1,5 @@
 const commonjs = require("@rollup/plugin-commonjs");
-const resolve = require("@rollup/plugin-node-resolve");
+const {nodeResolve} = require("@rollup/plugin-node-resolve");
 const json = require("@rollup/plugin-json");
 const builtins = require("rollup-plugin-node-builtins");
 const {terser} = require("rollup-plugin-terser");
@@ -18,7 +18,7 @@ module.exports = {
 		}),
 		json(),
 		builtins(),
-		resolve({
+		nodeResolve({
 			preferBuiltins: false
 		}),
 		terser(),
