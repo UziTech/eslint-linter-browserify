@@ -26,11 +26,9 @@
   "scripts": {
     "test": "node test.js",
     "build": "rollup --config",
-    "fixNoObjCalls": "node fixNoObjCalls.js",
     "lint": "eslint ."
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "*",
     "@rollup/plugin-json": "*",
     "@rollup/plugin-node-resolve": "*",
     "eslint": "7.1.0",
