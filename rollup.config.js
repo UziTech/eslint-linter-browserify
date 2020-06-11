@@ -1,3 +1,4 @@
+const commonjs = require("@rollup/plugin-commonjs");
 const {nodeResolve} = require("@rollup/plugin-node-resolve");
 const json = require("@rollup/plugin-json");
 const builtins = require("rollup-plugin-node-builtins");
@@ -12,6 +13,9 @@ module.exports = {
 		name: "eslint",
 	},
 	plugins: [
+		commonjs({
+			ignoreGlobal: true,
+		}),
 		json(),
 		builtins(),
 		nodeResolve({
