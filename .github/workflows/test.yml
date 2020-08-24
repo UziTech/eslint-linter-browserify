@@ -30,7 +30,7 @@ jobs:
       github.event_name == 'pull_request'
     steps:
       - name: '@dependabot merge'
-        uses: actions/github-script@v2
+        uses: actions/github-script@v3
         with:
           github-token: ${{secrets.GH_TOKEN}}
           script: |
