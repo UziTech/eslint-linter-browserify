@@ -15,6 +15,7 @@ module.exports = {
 	plugins: [
 		commonjs({
 			ignoreGlobal: true,
+			requireReturnsDefault: "preferred",
 		}),
 		json(),
 		builtins(),
