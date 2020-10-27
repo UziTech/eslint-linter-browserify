@@ -31,7 +31,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^16.0.0",
     "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@rollup/plugin-node-resolve": "^10.0.0",
     "eslint": "7.12.1",
     "rollup": "^2.27.1",
     "rollup-plugin-node-builtins": "^2.1.2",
