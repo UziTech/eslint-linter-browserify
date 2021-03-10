@@ -1,9 +1,6 @@
 name: "Test"
 on:
-  pull_request:
-  push:
-    branches:
-      - master
+  pull_request_target:
 
 jobs:
 
@@ -11,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
       - run: npm install
       - run: npm run build
       - run: npm test
@@ -19,20 +18,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
       - run: npm install
       - run: npm run lint
 
   Automerge:
     needs: [Test, Lint]
     runs-on: ubuntu-latest
-    if: |
-      github.actor == 'dependabot[bot]' &&
-      github.event_name == 'pull_request'
+    if: github.actor == 'dependabot[bot]'
     steps:
       - name: '@dependabot merge'
         uses: actions/github-script@v3
         with:
-          github-token: ${{secrets.GH_TOKEN}}
+          github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             await github.issues.createComment({
               owner: context.payload.repository.owner.login,
