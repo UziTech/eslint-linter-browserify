@@ -1,5 +1,6 @@
-name: "Test Push"
+name: "Test"
 on:
+  pull_request:
   push:
     branches:
       - master
