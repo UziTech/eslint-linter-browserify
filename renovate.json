@@ -3,5 +3,6 @@
     "config:base"
   ],
   "automerge": true,
-  "rangeStrategy": "bump"
+  "rangeStrategy": "bump",
+  "ignoreDeps": ["eslint"]
 }
