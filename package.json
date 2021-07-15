@@ -29,7 +29,7 @@
     "lint": "eslint ."
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-commonjs": "^19.0.1",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.0.1",
     "eslint": "7.30.0",
