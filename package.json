@@ -1,6 +1,6 @@
 {
   "name": "eslint-linter-browserify",
-  "version": "8.10.0",
+  "version": "8.11.0",
   "description": "Use eslint in the browser",
   "main": "linter.js",
   "files": [
