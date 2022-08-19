@@ -2,7 +2,6 @@ const commonjs = require("@rollup/plugin-commonjs");
 const {nodeResolve} = require("@rollup/plugin-node-resolve");
 const json = require("@rollup/plugin-json");
 const builtins = require("rollup-plugin-node-builtins");
-const {terser} = require("rollup-plugin-terser");
 
 module.exports = {
 	input: "index.js",
@@ -11,6 +10,7 @@ module.exports = {
 		format: "umd",
 		exports: "named",
 		name: "eslint",
+		intro: "if (!global) { var global = globalThis || window; }",
 	},
 	plugins: [
 		commonjs({
@@ -22,6 +22,5 @@ module.exports = {
 		nodeResolve({
 			preferBuiltins: false
 		}),
-		terser(),
 	],
 };
