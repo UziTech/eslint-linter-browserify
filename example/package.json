@@ -1,0 +1,23 @@
+{
+  "name": "codemirror",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup --config",
+    "start": "npm run build --prefix ../ && npm run build && serve"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@codemirror/lang-javascript": "^6.0.2",
+    "@codemirror/lint": "^6.0.0",
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "codemirror": "^6.0.1",
+    "eslint-linter-browserify": "file:../",
+    "rollup": "^2.78.0",
+    "serve": "^14.0.1"
+  }
+}
