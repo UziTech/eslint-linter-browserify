@@ -1,6 +1,18 @@
 # eslint-linter-browserify
 Use eslint in the browser
 
+```js
+import "./node_modules/eslint-linter-browserify/linter.js"
+
+const linter = new eslint.Linter();
+
+const messages = linter.verify("var foo;", {
+  rules: {
+    semi: "error"
+  }
+}, { filename: "foo.js" });
+```
+
 https://eslint.org/docs/developer-guide/nodejs-api#linter
 
-See the [CodeMirror example](./example) for a way to use this.
+See the [CodeMirror example](./example) for a way to use this in [CodeMirror](https://codemirror.net).
