@@ -18,6 +18,6 @@
     "codemirror": "^6.0.1",
     "eslint-linter-browserify": "file:../",
     "rollup": "^3.3.0",
-    "serve": "^14.1.1"
+    "serve": "^14.1.2"
   }
 }
