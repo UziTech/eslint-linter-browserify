@@ -2,7 +2,7 @@
 Use eslint in the browser
 
 ```js
-import "./node_modules/eslint-linter-browserify/linter.js";
+import * as eslint from "eslint-linter-browserify";
 
 // or <script src="https://cdn.jsdelivr.net/npm/eslint-linter-browserify/linter.min.js"></script>
 
