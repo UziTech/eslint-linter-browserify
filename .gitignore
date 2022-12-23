@@ -1,4 +1,7 @@
 linter.js
+linter.min.js
+linter.mjs
+linter.cjs
 example/bundle.js
 .npmrc
 

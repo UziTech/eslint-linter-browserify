@@ -2,10 +2,21 @@
   "name": "eslint-linter-browserify",
   "version": "8.30.0",
   "description": "Use eslint in the browser",
-  "main": "linter.js",
+  "main": "./linter.cjs",
+  "module": "./linter.mjs",
+  "browser": "./linter.js",
   "files": [
-    "linter.js"
+    "linter.js",
+    "linter.min.js",
+    "linter.mjs",
+    "linter.cjs"
   ],
+  "exports": {
+    ".": {
+      "import": "./linter.mjs",
+      "default": "./linter.cjs"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/UziTech/eslint-linter-browserify.git"
@@ -24,7 +35,7 @@
   },
   "homepage": "https://github.com/UziTech/eslint-linter-browserify#readme",
   "scripts": {
-    "test": "node test.js",
+    "test": "npm run build && node test.js",
     "build": "rollup --config",
     "lint": "eslint ."
   },
@@ -32,6 +43,7 @@
     "@rollup/plugin-commonjs": "^24.0.0",
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-terser": "^0.2.1",
     "eslint": "8.30.0",
     "process": "^0.11.10",
     "rollup": "^3.8.0",
