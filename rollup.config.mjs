@@ -5,7 +5,7 @@ import builtins from "rollup-plugin-node-builtins";
 import terser from "@rollup/plugin-terser";
 
 
-function generateRollup(output, minified) {
+function generateRollup(output) {
 	const plugins = [
 		commonjs({
 			ignoreGlobal: true,
@@ -18,7 +18,7 @@ function generateRollup(output, minified) {
 		}),
 	];
 
-	if (minified) {
+	if (output.file.match(/\.min\./)) {
 		plugins.push(terser());
 	}
 
@@ -44,7 +44,7 @@ export default [
 		format: "umd",
 		exports: "named",
 		name: "eslint",
-	}, true),
+	}),
 	generateRollup({
 		file: "linter.mjs",
 		format: "esm",
