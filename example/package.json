@@ -5,9 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run build --prefix ../ && rollup --config",
-    "start": "npm run build && serve"
+    "test": "npm run build:linter && npm run build",
+    "build": "rollup --config",
+    "build:linter": "npm run build --prefix ../",
+    "start": "npm run build:linter && npm run build && serve"
   },
   "author": "",
   "license": "MIT",

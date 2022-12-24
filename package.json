@@ -15,7 +15,9 @@
     ".": {
       "import": "./linter.mjs",
       "default": "./linter.cjs"
-    }
+    },
+    "./linter.js": "./linter.js",
+    "./linter.min.js": "./linter.min.js"
   },
   "repository": {
     "type": "git",
@@ -35,7 +37,7 @@
   },
   "homepage": "https://github.com/UziTech/eslint-linter-browserify#readme",
   "scripts": {
-    "test": "npm run build && node test.js",
+    "test": "node test.js && node test.mjs",
     "build": "rollup --config",
     "lint": "eslint ."
   },

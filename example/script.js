@@ -3,7 +3,7 @@ import {javascript, esLint} from "@codemirror/lang-javascript";
 import {linter, lintGutter} from "@codemirror/lint";
 
 // Uses linter.mjs
-import {Linter} from "eslint-linter-browserify";
+import * as eslint from "eslint-linter-browserify";
 
 const config = {
 	// eslint configuration
@@ -27,7 +27,7 @@ new EditorView({
 		javascript(),
 		lintGutter(),
 		// eslint-disable-next-line
-		linter(esLint(new Linter(), config)),
+		linter(esLint(new eslint.Linter(), config)),
 	],
 	parent: document.body
 });
