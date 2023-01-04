@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run build:linter && npm run build",
     "build": "rollup --config",
-    "start": "npm run build --prefix ../ && npm run build && serve"
+    "build:linter": "npm run build --prefix ../",
+    "start": "npm run build:linter && npm run build && serve"
   },
   "author": "",
   "license": "MIT",
