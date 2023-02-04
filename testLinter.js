@@ -9,6 +9,6 @@ function testLinter(name, Linter) {
 		console.error("errors =", errors);
 		process.exit(1);
 	}
-};
+}
 
 module.exports = {testLinter};

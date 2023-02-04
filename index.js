@@ -1,5 +1,5 @@
 if (typeof process === "undefined") {
-	window.process = require("process/browser");
+	(window || globalThis).process = require("process/browser");
 }
 
 function getLinter() {

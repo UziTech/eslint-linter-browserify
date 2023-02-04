@@ -1,1 +1,6 @@
 linter.js
+linter.cjs
+linter.min.js
+linter.mjs
+
+example/bundle.js
