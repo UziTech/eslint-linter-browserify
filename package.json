@@ -48,7 +48,7 @@
     "@rollup/plugin-terser": "^0.4.0",
     "eslint": "8.36.0",
     "process": "^0.11.10",
-    "rollup": "^3.19.1",
+    "rollup": "^3.20.0",
     "rollup-plugin-node-builtins": "^2.1.2"
   }
 }
