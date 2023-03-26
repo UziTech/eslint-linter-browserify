@@ -11,6 +11,7 @@
     "linter.mjs",
     "linter.cjs"
   ],
+  "types": "index.d.ts",
   "exports": {
     ".": {
       "import": "./linter.mjs",
