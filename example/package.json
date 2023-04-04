@@ -16,7 +16,7 @@
     "@codemirror/lang-javascript": "^6.1.5",
     "@codemirror/lint": "^6.2.0",
     "@rollup/plugin-commonjs": "^24.0.1",
-    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.2",
     "codemirror": "^6.0.1",
     "eslint-linter-browserify": "file:../",
     "rollup": "^3.20.2",
