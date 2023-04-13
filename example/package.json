@@ -13,8 +13,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@codemirror/lang-javascript": "^6.1.5",
-    "@codemirror/lint": "^6.2.0",
+    "@codemirror/lang-javascript": "^6.1.6",
+    "@codemirror/lint": "^6.2.1",
     "@rollup/plugin-commonjs": "^24.1.0",
     "@rollup/plugin-node-resolve": "^15.0.2",
     "codemirror": "^6.0.1",
