@@ -6,6 +6,7 @@
   "module": "./linter.mjs",
   "browser": "./linter.js",
   "files": [
+    "index.d.ts",
     "linter.js",
     "linter.min.js",
     "linter.mjs",
@@ -14,7 +15,10 @@
   "types": "index.d.ts",
   "exports": {
     ".": {
-      "import": "./linter.mjs",
+      "import": {
+        "types": "./index.d.ts",
+        "default": "./linter.mjs"
+      },
       "default": "./linter.cjs"
     },
     "./linter.js": "./linter.js",
