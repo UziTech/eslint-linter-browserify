@@ -13,7 +13,7 @@ jobs:
       github.event.repository.fork == false
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - run: node release.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
