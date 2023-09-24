@@ -19,7 +19,7 @@
     "@rollup/plugin-node-resolve": "^15.2.1",
     "codemirror": "^6.0.1",
     "eslint-linter-browserify": "file:../",
-    "rollup": "^3.29.2",
+    "rollup": "^3.29.3",
     "serve": "^14.2.1"
   }
 }
