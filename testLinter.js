@@ -5,7 +5,7 @@ function testLinter(name, Linter) {
 		console.log(`${name} Passed`);
 	} else {
 		console.error(`${name} Failed`);
-		console.error("errors[0].ruleId === 'no-var'");
+		console.error("errors[0].ruleId !== 'no-var'");
 		console.error("errors =", errors);
 		process.exit(1);
 	}
