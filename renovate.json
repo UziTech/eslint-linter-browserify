@@ -4,5 +4,5 @@
   ],
   "automerge": true,
   "rangeStrategy": "bump",
-  "ignoreDeps": ["eslint"]
+  "ignoreDeps": ["eslint", "@eslint/js"]
 }
