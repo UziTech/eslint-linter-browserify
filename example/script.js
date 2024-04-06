@@ -7,13 +7,11 @@ import * as eslint from "eslint-linter-browserify";
 
 const config = {
 	// eslint configuration
-	parserOptions: {
-		ecmaVersion: 2019,
-		sourceType: "module",
-	},
-	env: {
-		browser: true,
-		node: true,
+	languageOptions: {
+		parserOptions: {
+			ecmaVersion: 2019,
+			sourceType: "module",
+		},
 	},
 	rules: {
 		semi: ["error", "never"],
@@ -26,7 +24,6 @@ new EditorView({
 		basicSetup,
 		javascript(),
 		lintGutter(),
-		// eslint-disable-next-line
 		linter(esLint(new eslint.Linter(), config)),
 	],
 	parent: document.body

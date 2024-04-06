@@ -1,6 +1,6 @@
 function testLinter(name, Linter) {
 	const linter = new Linter();
-	const errors = linter.verify("var a", {rules: {"no-var": 2}});
+	const errors = linter.verify("var a", {rules: {"no-var": "error"}});
 	if (errors[0].ruleId === "no-var") {
 		console.log(`${name} Passed`);
 	} else {

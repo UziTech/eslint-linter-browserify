@@ -44,7 +44,7 @@
   "scripts": {
     "test": "node test.cjs && node test.mjs",
     "build": "rollup --config",
-    "lint": "eslint ."
+    "lint": "eslint"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
@@ -55,5 +55,9 @@
     "process": "^0.11.10",
     "rollup": "^4.14.0",
     "rollup-plugin-node-builtins": "^2.1.2"
+  },
+  "dependencies": {
+    "@eslint/js": "^9.0.0",
+    "globals": "^15.0.0"
   }
 }
