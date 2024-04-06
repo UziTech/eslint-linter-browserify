@@ -23,6 +23,7 @@ function generateRollup(output) {
 	}
 
 	return {
+		context: "window",
 		input: "index.js",
 		output: {
 			intro: "if (!global) { var global = globalThis || window; }",
@@ -38,7 +39,7 @@ export default [
 		format: "umd",
 		exports: "named",
 		name: "eslint",
-	}), 
+	}),
 	generateRollup({
 		file: "linter.min.js",
 		format: "umd",
