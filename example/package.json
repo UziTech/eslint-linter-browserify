@@ -8,14 +8,14 @@
     "test": "npm run build:linter && npm run build",
     "build": "rollup --config",
     "build:linter": "npm run build --prefix ../",
-    "start": "npm run build:linter && npm run build && serve"
+    "start": "npm run build:linter && npm run serve",
+    "serve": "npm run build && serve"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "@codemirror/lang-javascript": "^6.2.2",
     "@codemirror/lint": "^6.5.0",
-    "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "codemirror": "^6.0.1",
     "eslint-linter-browserify": "file:../",
