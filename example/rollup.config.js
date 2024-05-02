@@ -1,4 +1,6 @@
 import {nodeResolve} from "@rollup/plugin-node-resolve";
+import commonjs from '@rollup/plugin-commonjs';
+import json from '@rollup/plugin-json';
 
 export default {
 	input: "script.js",
@@ -7,5 +9,5 @@ export default {
 		format: "iife"
 	},
 	context: "window",
-	plugins: [nodeResolve()]
+	plugins: [nodeResolve(), commonjs(), json()]
 };

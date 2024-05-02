@@ -21,5 +21,10 @@
     "eslint-linter-browserify": "file:../",
     "rollup": "^4.17.2",
     "serve": "^14.2.3"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
+    "globals": "^15.1.0"
   }
 }
