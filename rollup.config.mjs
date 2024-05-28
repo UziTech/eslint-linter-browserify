@@ -3,10 +3,19 @@ import {nodeResolve} from "@rollup/plugin-node-resolve";
 import json from "@rollup/plugin-json";
 import nodePolyfills from 'rollup-plugin-polyfill-node';
 import terser from "@rollup/plugin-terser";
-
+import replace from '@rollup/plugin-replace';
 
 function generateRollup(output) {
 	const plugins = [
+		replace({
+			preventAssignment: true,
+			values: {
+				'require("node:': 'require("',
+				'require(\'node:': 'require(\'',
+				'from "node:': 'from "',
+				'from \'node:': 'from \'',
+			}
+		}),
 		commonjs({
 			ignoreGlobal: true,
 			requireReturnsDefault: "preferred",
