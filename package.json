@@ -47,13 +47,13 @@
     "lint": "eslint"
   },
   "devDependencies": {
-    "@eslint/js": "9.9.1",
+    "@eslint/js": "9.10.0",
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-replace": "^5.0.7",
     "@rollup/plugin-terser": "^0.4.4",
-    "eslint": "9.9.1",
+    "eslint": "9.10.0",
     "globals": "^15.9.0",
     "rollup": "^4.21.2",
     "rollup-plugin-polyfill-node": "^0.13.0"
