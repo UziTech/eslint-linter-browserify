@@ -19,6 +19,7 @@ function generateRollup(output) {
 		commonjs({
 			ignoreGlobal: true,
 			requireReturnsDefault: "preferred",
+			strictRequires: "auto",
 		}),
 		json(),
 		nodePolyfills(),
