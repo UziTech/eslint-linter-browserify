@@ -1,8 +1,11 @@
 {
   "extends": [
-    "config:base"
+    "config:recommended"
   ],
   "automerge": true,
   "rangeStrategy": "bump",
-  "ignoreDeps": ["eslint", "@eslint/js"]
+  "ignoreDeps": [
+    "eslint",
+    "@eslint/js"
+  ]
 }
