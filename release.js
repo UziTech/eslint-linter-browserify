@@ -2,13 +2,16 @@ const {execSync} = require("child_process");
 const {writeFileSync} = require("fs");
 const {version} = require("./package.json");
 
-function exec(command) {
+function exec(command, skipIfFail) {
 	console.log(`> ${command}`);
 	let output;
 	try {
 		output = execSync(command, {cwd: __dirname, encoding: "utf8"});
 	} catch (ex) {
 		console.error(ex.stdout ? ex.stdout : ex.stderr);
+		if (skipIfFail) {
+			return;
+		}
 		process.exit(1);
 	}
 	output = output.trim();
@@ -30,11 +33,7 @@ if (eslintVersion === version) {
 } else {
 	exec("npm install");
 	exec(`npm install eslint@${eslintVersion} --save-dev --save-exact`);
-	try {
-		exec(`npm install @eslint/js@${eslintVersion} --save-dev --save-exact`);
-	} catch(ex) {
-		console.error(`Skiping @eslint/js@${eslintVersion} install.`);
-	}
+	exec(`npm install @eslint/js@${eslintVersion} --save-dev --save-exact`, true);
 	exec("npm run lint");
 	exec("npm run build");
 	exec("npm test");
