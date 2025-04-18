@@ -1,13 +1,27 @@
+const tests = [
+	{
+		text: "var a = 0;",
+		rules: {"no-var": "error"},
+	},
+	{
+		text: "var a = 0;",
+		rules: {"semi": ["error", "never"]},
+	},
+];
+
 function testLinter(name, Linter) {
-	const linter = new Linter();
-	const errors = linter.verify("var a", {rules: {"no-var": "error"}});
-	if (errors[0].ruleId === "no-var") {
-		console.log(`${name} Passed`);
-	} else {
-		console.error(`${name} Failed`);
-		console.error("errors[0].ruleId !== 'no-var'");
-		console.error("errors =", errors);
-		process.exit(1);
+	for (const test of tests) {
+		const linter = new Linter();
+		const errors = linter.verify(test.text, {rules: test.rules});
+		const ruleName = Object.keys(test.rules)[0];
+		if (errors[0].ruleId === ruleName) {
+			console.log(`${name} ${ruleName} Passed`);
+		} else {
+			console.error(`${name} ${ruleName} Failed`);
+			console.error(`errors[0].ruleId !== '${ruleName}'`);
+			console.error("errors =", errors);
+			process.exit(1);
+		}
 	}
 }
 
