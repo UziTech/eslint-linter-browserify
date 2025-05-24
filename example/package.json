@@ -21,7 +21,7 @@
     "@rollup/plugin-node-resolve": "^16.0.1",
     "codemirror": "^6.0.1",
     "eslint-linter-browserify": "file:../",
-    "rollup": "^4.41.0",
+    "rollup": "^4.41.1",
     "serve": "^14.2.4"
   },
   "devDependencies": {
