@@ -27,6 +27,6 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.3",
     "@rollup/plugin-json": "^6.1.0",
-    "globals": "^16.1.0"
+    "globals": "^16.2.0"
   }
 }
