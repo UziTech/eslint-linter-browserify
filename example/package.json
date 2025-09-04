@@ -22,7 +22,7 @@
     "codemirror": "^6.0.2",
     "eslint-linter-browserify": "file:../",
     "rollup": "^4.50.0",
-    "serve": "^14.2.4"
+    "serve": "^14.2.5"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.6",
