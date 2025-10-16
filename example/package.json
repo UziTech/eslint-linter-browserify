@@ -16,7 +16,7 @@
   "dependencies": {
     "@codemirror/lang-javascript": "^6.2.4",
     "@codemirror/lint": "^6.9.0",
-    "@rollup/plugin-commonjs": "28.0.7",
+    "@rollup/plugin-commonjs": "28.0.8",
     "@rollup/plugin-json": "6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "codemirror": "^6.0.2",
@@ -25,7 +25,7 @@
     "serve": "^14.2.5"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^28.0.7",
+    "@rollup/plugin-commonjs": "^28.0.8",
     "@rollup/plugin-json": "^6.1.0",
     "globals": "^16.4.0"
   }
