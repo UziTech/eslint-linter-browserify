@@ -9,6 +9,7 @@ function generateRollup(output) {
 	const plugins = [
 		replace({
 			preventAssignment: true,
+			delimiters: ["", ""],
 			values: {
 				'require("node:': 'require("',
 				'require(\'node:': 'require(\'',
