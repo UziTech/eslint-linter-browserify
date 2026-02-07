@@ -50,7 +50,8 @@ console.log(`> Curent version\n${pkg.version}\n`);
 if (eslintVersion === pkg.version) {
   console.log("No update available");
 } else {
-  const oidcToken = await connectOIDC();
+  await connectOIDC();
+  // const oidcToken = await connectOIDC();
   try {
     // uncomment this if release fails or delete it if release succeeds
     // exec(`npm config set //registry.npmjs.org/:_authToken=${oidcToken}`, true);
