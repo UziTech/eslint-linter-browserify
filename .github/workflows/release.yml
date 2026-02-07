@@ -20,6 +20,6 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - run: npm install
-      - run: node release.js
+      - run: node release.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
