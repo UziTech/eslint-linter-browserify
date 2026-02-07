@@ -52,7 +52,8 @@ if (eslintVersion === pkg.version) {
 } else {
   const oidcToken = await connectOIDC();
   try {
-    exec(`npm config set //registry.npmjs.org/:_authToken=${oidcToken}`, true);
+    // uncomment this if release fails or delete it if release succeeds
+    // exec(`npm config set //registry.npmjs.org/:_authToken=${oidcToken}`, true);
 
     exec("npm install");
     exec(`npm install eslint@${eslintVersion} --save-dev --save-exact`);
