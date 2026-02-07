@@ -1,6 +1,6 @@
 const { getIDToken } = require("@actions/core");
 const { execSync } = require("child_process");
-const { version } = require("./package.json");
+const { version, name } = require("./package.json");
 
 function exec(command) {
   console.log(`> ${command}`);
@@ -18,7 +18,7 @@ function exec(command) {
 async function connectOIDC() {
   const token = await getIDToken("npm:registry.npmjs.org");
   const response = await fetch(
-    "https://registry.npmjs.org/-/npm/v1/oidc/token/exchange/package/eslint-linter-browserify",
+    `https://registry.npmjs.org/-/npm/v1/oidc/token/exchange/package/${name}`,
     {
       method: "POST",
       headers: { Authorization: `Bearer ${token}` },
@@ -29,7 +29,10 @@ async function connectOIDC() {
     const responseBody = await response.json();
     return responseBody.token;
   } else {
-    throw new Error(response.statusText);
+    const errorBody = await response.text();
+    throw new Error(
+      `Failed to get OIDC token: ${response.status} ${response.statusText}\n${errorBody}`,
+    );
   }
 }
 
