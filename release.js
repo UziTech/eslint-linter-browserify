@@ -50,7 +50,7 @@ if (eslintVersion === version) {
 } else {
   connectOIDC().then((oidcToken) => {
     try {
-      console.log(oidcToken);
+      exec(`npm config set //registry.npmjs.org/:_authToken=${oidcToken}`);
 
       exec("npm install");
       exec(`npm install eslint@${eslintVersion} --save-dev --save-exact`);
