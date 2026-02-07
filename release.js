@@ -44,7 +44,6 @@ if (eslintVersion === version) {
 		exec("git config user.name \"Github Actions\"");
 		exec(`git commit -am "update eslint to v${eslintVersion}"`);
 		exec(`npm version ${eslintVersion}`);
-		writeFileSync(".npmrc", "//registry.npmjs.org/:_authToken=${NPM_TOKEN}");
 		exec("npm publish");
 		exec("git push \"https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git\" HEAD:master --follow-tags");
 	} catch (ex) {
