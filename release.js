@@ -16,7 +16,7 @@ function exec(command) {
 }
 
 async function connectOIDC() {
-  const token = getIDToken("npm:registry.npmjs.org");
+  const token = await getIDToken("npm:registry.npmjs.org");
   const response = await fetch(
     "https://registry.npmjs.org/-/npm/v1/oidc/token/exchange/package/eslint-linter-browserify",
     {
@@ -45,31 +45,33 @@ console.log(`> Curent version\n${version}\n`);
 if (eslintVersion === version) {
   console.log("No update available");
 } else {
-  try {
-    console.log(await connectOIDC());
-
-    exec("npm install");
-    exec(`npm install eslint@${eslintVersion} --save-dev --save-exact`);
+  connectOIDC().then((oidcToken) => {
     try {
-      exec(`npm install @eslint/js@${eslintVersion} --save-dev --save-exact`);
+      console.log(oidcToken);
+
+      exec("npm install");
+      exec(`npm install eslint@${eslintVersion} --save-dev --save-exact`);
+      try {
+        exec(`npm install @eslint/js@${eslintVersion} --save-dev --save-exact`);
+      } catch (ex) {
+        console.error(ex);
+        console.log("Trying @eslint/js@latest");
+        exec(`npm install @eslint/js@latest --save-dev --save-exact`);
+      }
+      exec("npm run lint");
+      exec("npm run build");
+      exec("npm test");
+      exec('git config user.email "<>"');
+      exec('git config user.name "Github Actions"');
+      exec(`git commit -am "update eslint to v${eslintVersion}"`);
+      exec(`npm version ${eslintVersion}`);
+      exec("npm publish");
+      exec(
+        'git push "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:master --follow-tags',
+      );
     } catch (ex) {
       console.error(ex);
-      console.log("Trying @eslint/js@latest");
-      exec(`npm install @eslint/js@latest --save-dev --save-exact`);
+      process.exit(1);
     }
-    exec("npm run lint");
-    exec("npm run build");
-    exec("npm test");
-    exec('git config user.email "<>"');
-    exec('git config user.name "Github Actions"');
-    exec(`git commit -am "update eslint to v${eslintVersion}"`);
-    exec(`npm version ${eslintVersion}`);
-    exec("npm publish");
-    exec(
-      'git push "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:master --follow-tags',
-    );
-  } catch (ex) {
-    console.error(ex);
-    process.exit(1);
-  }
+  });
 }
