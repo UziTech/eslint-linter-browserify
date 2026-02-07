@@ -2,8 +2,10 @@ import { getIDToken } from "@actions/core";
 import { execSync } from "child_process";
 import pkg from "./package.json" with { type: "json" };
 
-function exec(command) {
-  console.log(`> ${command}`);
+function exec(command, hideCommand = false) {
+  if (!hideCommand) {
+    console.log(`> ${command}`);
+  }
   let output;
   try {
     output = execSync(command, { cwd: import.meta.dirname, encoding: "utf8" });
@@ -50,7 +52,7 @@ if (eslintVersion === pkg.version) {
 } else {
   const oidcToken = await connectOIDC();
   try {
-    exec(`npm config set //registry.npmjs.org/:_authToken=${oidcToken}`);
+    exec(`npm config set //registry.npmjs.org/:_authToken=${oidcToken}`, true);
 
     exec("npm install");
     exec(`npm install eslint@${eslintVersion} --save-dev --save-exact`);
