@@ -1,5 +1,4 @@
 const {execSync} = require("child_process");
-const {writeFileSync} = require("fs");
 const {version} = require("./package.json");
 
 function exec(command) {
