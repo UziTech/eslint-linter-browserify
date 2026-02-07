@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+      - run: npm install
       - run: node release.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
