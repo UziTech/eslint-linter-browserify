@@ -8,7 +8,7 @@ function exec(command) {
   try {
     output = execSync(command, { cwd: __dirname, encoding: "utf8" });
   } catch (ex) {
-    throw new Error(ex.message, ex.stdout ? ex.stdout : ex.stderr);
+    throw new Error(ex.message + "\n" + (ex.stdout ? ex.stdout : ex.stderr));
   }
   output = output.trim();
   console.log(`${output}\n`);
