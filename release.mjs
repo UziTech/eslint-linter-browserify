@@ -1,6 +1,6 @@
 import { getIDToken } from "@actions/core";
 import { execSync } from "child_process";
-import { version, name } from "./package.json";
+import { version, name } from "./package.json" with { type: "json" };
 
 function exec(command) {
   console.log(`> ${command}`);
