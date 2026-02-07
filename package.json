@@ -47,6 +47,7 @@
     "lint": "eslint"
   },
   "devDependencies": {
+    "@actions/core": "^3.0.0",
     "@eslint/js": "9.39.2",
     "@rollup/plugin-alias": "^6.0.0",
     "@rollup/plugin-commonjs": "^29.0.0",
@@ -57,8 +58,5 @@
     "globals": "^17.3.0",
     "rollup": "^4.57.1",
     "rollup-plugin-polyfill-node": "^0.13.0"
-  },
-  "dependencies": {
-    "@actions/core": "^3.0.0"
   }
 }
