@@ -1,6 +1,6 @@
 import { getIDToken } from "@actions/core";
 import { execSync } from "child_process";
-import { version } from "./package.json" with { type: "json" };
+import pkg from "./package.json" with { type: "json" };
 
 function exec(command) {
   console.log(`> ${command}`);
@@ -18,7 +18,7 @@ function exec(command) {
 async function connectOIDC() {
   const token = await getIDToken("npm:registry.npmjs.org");
   const response = await fetch(
-    "https://registry.npmjs.org/-/npm/v1/oidc/token/exchange/package/eslint-linter-browserify",
+    `https://registry.npmjs.org/-/npm/v1/oidc/token/exchange/package/${pkg.name}`,
     {
       method: "POST",
       headers: { Authorization: `Bearer ${token}` },
@@ -43,9 +43,9 @@ if (!/^\d+\.\d+\.\d+$/.test(eslintVersion)) {
   process.exit(1);
 }
 
-console.log(`> Curent version\n${version}\n`);
+console.log(`> Curent version\n${pkg.version}\n`);
 
-if (eslintVersion === version) {
+if (eslintVersion === pkg.version) {
   console.log("No update available");
 } else {
   const oidcToken = await connectOIDC();
