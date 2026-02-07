@@ -6,9 +6,9 @@ function exec(command) {
   console.log(`> ${command}`);
   let output;
   try {
-    output = execSync(command, { cwd: __dirname, encoding: "utf8" });
+    output = execSync(command, { cwd: import.meta.dirname, encoding: "utf8" });
   } catch (ex) {
-    throw new Error(ex.message + "\n" + (ex.stdout ? ex.stdout : ex.stderr));
+    throw new Error((ex.stdout ? ex.stdout : ex.stderr) ?? ex.message);
   }
   output = output.trim();
   console.log(`${output}\n`);
