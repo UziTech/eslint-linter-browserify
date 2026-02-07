@@ -48,7 +48,8 @@ console.log(`> Curent version\n${version}\n`);
 if (eslintVersion === version) {
   console.log("No update available");
 } else {
-  connectOIDC().then((oidcToken) => {
+  (async () => {
+    const oidcToken = await connectOIDC();
     try {
       exec(`npm config set //registry.npmjs.org/:_authToken=${oidcToken}`);
 
@@ -76,5 +77,5 @@ if (eslintVersion === version) {
       console.error(ex);
       process.exit(1);
     }
-  });
+  })();
 }
