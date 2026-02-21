@@ -52,11 +52,9 @@ console.log(`> Curent version\n${pkg.version}\n`);
 if (eslintVersion === pkg.version) {
   console.log("No update available");
 } else {
-  await connectOIDC();
-  // const oidcToken = await connectOIDC();
+  const oidcToken = await connectOIDC();
   try {
-    // uncomment this if release fails or delete it if release succeeds
-    // exec(`npm config set //registry.npmjs.org/:_authToken=${oidcToken}`, true);
+    exec(`npm config set //registry.npmjs.org/:_authToken=${oidcToken}`, true);
 
     exec("npm install");
     exec(`npm install eslint@${eslintVersion} --save-dev --save-exact`);
