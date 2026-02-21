@@ -10,7 +10,9 @@ function exec(command, hideCommand = false) {
   try {
     output = execSync(command, { cwd: import.meta.dirname, encoding: "utf8" });
   } catch (ex) {
-    throw new Error((ex.stdout ? ex.stdout : ex.stderr) ?? ex.message);
+    throw new Error((ex.stdout ? ex.stdout : ex.stderr) ?? ex.message, {
+      cause: ex,
+    });
   }
   output = output.trim();
   console.log(`${output}\n`);
