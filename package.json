@@ -47,7 +47,7 @@
     "lint": "eslint"
   },
   "devDependencies": {
-    "@actions/core": "^3.0.0",
+    "@actions/core": "^3.0.1",
     "@eslint/js": "10.0.1",
     "@rollup/plugin-alias": "^6.0.0",
     "@rollup/plugin-commonjs": "^29.0.2",
