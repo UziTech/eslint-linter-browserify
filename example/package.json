@@ -15,7 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "@codemirror/lang-javascript": "^6.2.5",
-    "@codemirror/lint": "^6.9.5",
+    "@codemirror/lint": "^6.9.6",
     "@rollup/plugin-commonjs": "29.0.2",
     "@rollup/plugin-json": "6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
