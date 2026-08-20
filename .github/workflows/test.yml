@@ -6,12 +6,11 @@ on:
       - master
 
 jobs:
-
   Test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - run: npm install
+      - run: npm ci
       - run: npm run build
       - run: npm test
 
@@ -19,5 +18,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - run: npm install
+      - run: npm ci
       - run: npm run lint
+
+  Example:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: npm ci
+      - run: npm run build
+      - run: npm --prefix example install
+      - run: npm --prefix example run build

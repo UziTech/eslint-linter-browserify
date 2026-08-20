@@ -47,7 +47,7 @@ if (!/^\d+\.\d+\.\d+$/.test(eslintVersion)) {
   process.exit(1);
 }
 
-console.log(`> Curent version\n${pkg.version}\n`);
+console.log(`> Current version\n${pkg.version}\n`);
 
 if (eslintVersion === pkg.version) {
   console.log("No update available");
