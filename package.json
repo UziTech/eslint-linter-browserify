@@ -15,10 +15,8 @@
   "types": "index.d.ts",
   "exports": {
     ".": {
-      "import": {
-        "types": "./index.d.ts",
-        "default": "./linter.mjs"
-      },
+      "types": "./index.d.ts",
+      "import": "./linter.mjs",
       "default": "./linter.cjs"
     },
     "./linter.js": "./linter.js",
