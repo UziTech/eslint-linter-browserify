@@ -22,7 +22,7 @@
     "codemirror": "^6.0.2",
     "eslint-linter-browserify": "file:../",
     "globals": "^17.11.0",
-    "rollup": "^4.62.5",
+    "rollup": "^4.63.0",
     "serve": "^14.2.6"
   }
 }
