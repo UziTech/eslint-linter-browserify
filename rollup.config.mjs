@@ -3,13 +3,9 @@ import {nodeResolve} from "@rollup/plugin-node-resolve";
 import json from "@rollup/plugin-json";
 import nodePolyfills from 'rollup-plugin-polyfill-node';
 import terser from "@rollup/plugin-terser";
-import alias from '@rollup/plugin-alias';
 
 function generateRollup(output) {
 	const plugins = [
-		alias({
-			entries: [{find: /^node:(.*)/, replacement: '$1'}],
-		}),
 		commonjs({
 			ignoreGlobal: true,
 			requireReturnsDefault: "preferred",
