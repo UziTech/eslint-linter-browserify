@@ -53,6 +53,9 @@ if (eslintVersion === pkg.version) {
   console.log("No update available");
 } else {
   const oidcToken = await connectOIDC();
+  if (!/^[\w.-]+$/.test(oidcToken)) {
+    throw new Error("Invalid OIDC token received");
+  }
   try {
     exec(`npm config set //registry.npmjs.org/:_authToken=${oidcToken}`, true);
 
