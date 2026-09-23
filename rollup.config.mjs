@@ -1,7 +1,7 @@
 import commonjs from "@rollup/plugin-commonjs";
 import {nodeResolve} from "@rollup/plugin-node-resolve";
 import json from "@rollup/plugin-json";
-import nodePolyfills from 'rollup-plugin-polyfill-node';
+import nodePolyfills from '@stackline/rollup-plugin-polyfill-node';
 import terser from "@rollup/plugin-terser";
 
 function generateRollup(output) {
