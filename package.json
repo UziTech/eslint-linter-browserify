@@ -50,7 +50,7 @@
     "@rollup/plugin-commonjs": "^29.0.3",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
-    "@rollup/plugin-terser": "^1.0.1",
+    "@rollup/plugin-terser": "^1.0.2",
     "@stackline/rollup-plugin-polyfill-node": "1.0.4",
     "eslint": "10.13.0",
     "globals": "^17.13.0",
